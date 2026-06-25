@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Test Runner — Automation Exercise</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="page">
+
+    <!-- ============ Header ============ -->
+    <header class="header">
+      <div class="header__mark" aria-hidden="true">
+        <span class="header__mark-dot"></span>
+      </div>
+      <h1 class="header__title">Login Test Runner</h1>
+      <p class="header__subtitle">
+        Runs the Playwright login suite against
+        <span class="header__mono">automationexercise.com</span>
+        using the email you provide below.
+      </p>
+    </header>
+
+    <!-- ============ Run Form Card ============ -->
+    <section class="card" aria-labelledby="form-heading">
+      <h2 id="form-heading" class="card__heading">Run a login test</h2>
+
+      <form id="run-form" class="form" novalidate>
+        <div class="field">
+          <label for="email" class="field__label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="field__input"
+            placeholder="name@example.com"
+            autocomplete="email"
+            required
+          />
+          <p class="field__hint" id="email-hint">
+            Password is supplied automatically from the project's test data.
+          </p>
+        </div>
+
+        <button type="submit" id="submit-btn" class="button button--primary">
+          <span class="button__label">Submit</span>
+        </button>
+      </form>
+
+      <!-- Run status strip: hidden until a run starts -->
+      <div id="run-status" class="run-status run-status--hidden" role="status" aria-live="polite">
+        <div class="run-status__bar">
+          <div id="run-status-fill" class="run-status__fill"></div>
+        </div>
+        <p id="run-status-text" class="run-status__text">Preparing test run…</p>
+      </div>
+    </section>
+
+    <!-- ============ Result Card ============ -->
+    <section id="result-card" class="card card--hidden" aria-labelledby="result-heading">
+      <h2 id="result-heading" class="card__heading">Result</h2>
+
+      <dl class="result-grid">
+        <div class="result-grid__row">
+          <dt>Status</dt>
+          <dd>
+            <span id="result-status-badge" class="badge">—</span>
+          </dd>
+        </div>
+        <div class="result-grid__row">
+          <dt>Execution time</dt>
+          <dd id="result-duration">—</dd>
+        </div>
+        <div class="result-grid__row result-grid__row--error" id="result-error-row">
+          <dt>Error message</dt>
+          <dd id="result-error" class="result-grid__error">—</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ============ Video Card ============ -->
+    <section id="video-card" class="card card--hidden" aria-labelledby="video-heading">
+      <h2 id="video-heading" class="card__heading">Recorded run</h2>
+      <div class="video-wrap">
+        <video id="result-video" class="video-player" controls preload="metadata" playsinline>
+          Your browser does not support video playback.
+        </video>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
